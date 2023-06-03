@@ -22,7 +22,7 @@ function App() {
   }, []);
   function Home() {
     return (
-      <h1>Hello, React Router!</h1>
+      <h1> hello world</h1>
     )
   }
   
