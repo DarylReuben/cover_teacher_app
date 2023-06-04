@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 
 function Deets() {
   return (
-    <div>Deets</div>
+    <div>  Details </div>
   )
 }
 

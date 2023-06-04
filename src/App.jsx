@@ -21,41 +21,23 @@ function App() {
 
     fetchData();
   }, []);
-  function Home() {
-    return (
-      <h1> hello world</h1>
-    )
-  }
-  
-
 
   return (
+    
     <BrowserRouter>
-    <nav>
-      <Link to="/">Home</Link>
-      
-      <Link to="/Deets"> Details </Link>
 
-    </nav>
-    <Routes>
-        <Route path="/" element={<Home />} />
-        
-
-
-    </Routes>
- 
     <div className=" w-screen p-8 bg-slate-400">
       <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded shadow-2xl p-4">
         <Navbar />
-        <Filters />
+        
         <Routes>
           <Route path="/Deets" element={<Deets />} />
-          <Route path="/" element={<Card info={teacherDetails}/>} />
-        </Routes>
-        
-        
+          <Route path="/" element={<Card info={teacherDetails}/> } />
+
+        </Routes> 
       </div>
     </div>
+
     </BrowserRouter >
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Deets from './Deets';
 import { Link } from 'react-router-dom';
+import Filters from './Filters';
 
 
 function Card(props) {
@@ -9,6 +10,7 @@ function Card(props) {
 
   return (    
     <div>
+      <Filters />
       {info.map((item, index) => (
         <div key={index} className=''>
           <div className="bg-slate-200 m-1 rounded-2xl grid grid-rows-3 grid-flow-col gap-2">
