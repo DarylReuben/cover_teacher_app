@@ -14,8 +14,12 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, 'Teachers'));
-      const teachers = querySnapshot.docs.map((doc) => doc.data());
+      const querySnapshot = await getDocs(collection(db, "Teachers"));
+      const teachers = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+
       setTeacherDetails(teachers);
     };
 
@@ -23,22 +27,17 @@ function App() {
   }, []);
 
   return (
-    
     <BrowserRouter>
-
-    <div className=" w-screen p-8 bg-slate-400">
-      <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded shadow-2xl p-4">
-        <Navbar />
-        
-        <Routes>
-          <Route path="/Deets" element={<Deets />} />
-          <Route path="/" element={<Card info={teacherDetails}/> } />
-
-        </Routes> 
+      <div className="w-screen p-8 bg-sky-100">
+        <div className="bg-sky-100 max-w-[400px] w-full m-auto rounded shadow-2xl p-4">
+          <Navbar />
+          <Routes>
+            <Route path="/:id" element={<Deets />} />
+            <Route path="/" element={<Card info={teacherDetails} />} />
+          </Routes>
+        </div>
       </div>
-    </div>
-
-    </BrowserRouter >
+    </BrowserRouter>
   );
 }
 
