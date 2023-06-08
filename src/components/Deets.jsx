@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { collection, doc, getDoc } from 'firebase/firestore';
 import { db } from '../Firebase';
-import { Carousel } from "@material-tailwind/react";
+import { Carousel, Spinner } from "@material-tailwind/react";
 
 
 function Deets() {
@@ -22,7 +22,7 @@ function Deets() {
   }, [id]);
 
   if (!teacherData) {
-    return <div>Loading...</div>;
+    return <div> Loading...<Spinner /></div>;
   }
 
   return (

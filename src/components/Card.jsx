@@ -1,22 +1,26 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Filters from './Filters';
 import { ArrowRight } from './Icons';
 
 
 function Card(props) {
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const typeFilter = searchParams.get("type")
 
   const { info } = props
-  console.log(info)
 
  
- 
+  const displayedTeachers = typeFilter
+  ? info.filter(teachers => teachers.type === typeFilter)
+  : info
 
   return (    
     <div>
       <Filters />
-      {info.map((item, id) => (
+      {displayedTeachers.map((item, id) => (
         <div key={id} className=''>
           <Link to={`/${item.id}`} >
           <div className="bg-sky-200 m-1 rounded-2xl grid grid-rows-3 grid-flow-col gap-2">
