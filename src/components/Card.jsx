@@ -16,7 +16,7 @@ function Card(props) {
   const displayedTeachers = sexFilter
   ? info.filter(teachers => teachers.sex === sexFilter)
   : info
-  
+
 
   return (    
     <div>
@@ -28,8 +28,8 @@ function Card(props) {
             <div className="w-32 h-32 rounded-full bg-red-700 row-span-3">
               <img src={item.image} alt="" className="transition duration-300 ease-in-out hover:scale-110 rounded-full object-cover w-32 h-32" />
             </div>
-            <div className="col-span-2 pl-8 text-lg font-bold"> {item.name} {item.surname} </div>
-            <div className="row-span-2 col-span-2 w-52"> {item.age}{item.sex} </div>
+            <div className="col-span-2 pl-8 text-lg font-bold"> {item.name} {item.surname} {item.age} </div>
+            <div className="row-span-2 col-span-2 w-52">   {item.native} </div>
             
           </div>
           </Link>
