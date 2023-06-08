@@ -15,12 +15,16 @@ import {
 } from "@material-tailwind/react";
 import { XMarkIcon, UserCircleIcon  } from "@heroicons/react/24/outline";
 import {  Link, useSearchParams } from "react-router-dom";
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
  
 export default function Filters() {
   const [openTop, setOpenTop] = React.useState(false);
   const [searchParams, setSearchParams] = useSearchParams()
   const [selectedDays, setSelectedDays] = React.useState([]);
+  const [startDate, setStartDate] = React.useState(new Date());
+
 
   const handleSwitchChange = (option) => {
     setSearchParams(option === searchParams.get("sex") ? "" : `?sex=${option}`);
@@ -37,19 +41,19 @@ export default function Filters() {
       </div>
       <Drawer placement="top" open={openTop} onClose={closeDrawerTop} className="p-4" >
 
-        <Card className="w-full max-w-[24rem] flex-row justify-between">
+        <Card className="w-full w-400 flex-row justify-between pb-10px">
           <Link className="" to=".">Clear</Link>        
           <Switch id="male" label="male" checked={searchParams.get("sex") === "male"} onChange={() => handleSwitchChange("male")}/>
           <Switch id="female" label="Female" checked={searchParams.get("sex") === "female"} onChange={() => handleSwitchChange("female")}/>
         </Card>
-
-        <Card className="overflow-scroll flex-row">
-        <div className="flex gap-10">
-          <Radio id="html" name="type" label="HTML" />
-          <Radio id="react" name="type" label="React"  />
-        </div>
-        </Card>
-
+        <Card className=" w-32 h-16 mt-6 bg-blue-gray-300">
+         <DatePicker
+            selected={startDate}
+            onChange={date => setStartDate(date)}
+            minDate={new Date()}
+          />
+          <Button> Submit </Button>
+        </Card>     
         <IconButton className="flex justify-end" variant="text" color="blue-gray" onClick={closeDrawerTop}>
           <XMarkIcon strokeWidth={2} className="h-5 w-5" />
         </IconButton>

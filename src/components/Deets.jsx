@@ -70,27 +70,6 @@ function Deets() {
         </Button>
       </CardFooter>
     </Card>
-      {/* <Carousel className="rounded-xl">
-        <img
-          src={teacherData.image}
-          alt="image 1"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src={teacherData.image2}
-          alt="image 1"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src={teacherData.image3}
-          alt="image 1"
-          className="h-full w-full object-cover"
-        />
-      </Carousel>
-
-      <h1>{teacherData.name}</h1>
-      <p>{teacherData.age}</p>
-      <p>{teacherData.sex}</p> */}
     </div>
   );
 }
