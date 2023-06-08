@@ -8,14 +8,15 @@ import { ArrowRight } from './Icons';
 function Card(props) {
   const [searchParams, setSearchParams] = useSearchParams()
 
-  const typeFilter = searchParams.get("type")
+  const sexFilter = searchParams.get("sex")
 
   const { info } = props
 
  
-  const displayedTeachers = typeFilter
-  ? info.filter(teachers => teachers.type === typeFilter)
+  const displayedTeachers = sexFilter
+  ? info.filter(teachers => teachers.sex === sexFilter)
   : info
+  
 
   return (    
     <div>

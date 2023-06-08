@@ -20,7 +20,9 @@ export default function Filters() {
   const [searchParams, setSearchParams] = useSearchParams()
 
 
-
+  const handleSwitchChange = (option) => {
+    setSearchParams(option === searchParams.get("sex") ? "" : `?sex=${option}`);
+  };
 
  
   const openDrawerTop = () => setOpenTop(true);
@@ -38,10 +40,19 @@ export default function Filters() {
         onClose={closeDrawerTop}
         className="p-4" >
         <div className="mb-6 flex items-center justify-between">
-        <Link to=".">Clear</Link>
-          <Switch id="male" label="male" onChange={() => setSearchParams("?type=yes")}/>
-          <Switch id="female" label="Female" onChange={() => setSearchParams("?type=no")}/>
-    
+        <Link className="" to=".">Clear</Link>
+        <div className="list bg-orange-200">
+          <div className="list-item">
+            <Switch id="male" label="male" checked={searchParams.get("sex") === "male"} onChange={() => handleSwitchChange("male")}/>
+            <Switch id="female" label="Female" checked={searchParams.get("sex") === "female"} onChange={() => handleSwitchChange("female")}/>
+          </div>
+          <div className="row">
+          <Switch />
+          <Switch />
+          <Switch />
+        </div>
+        </div>
+        
           <IconButton variant="text" color="blue-gray" onClick={closeDrawerTop}>
             <XMarkIcon strokeWidth={2} className="h-5 w-5" />
           </IconButton>
