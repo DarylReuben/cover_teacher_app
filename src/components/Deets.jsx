@@ -26,6 +26,7 @@ function Deets() {
   }
 
   return (
+
     <div>
       <Card className="w-96">
       <CardHeader shadow={false} floated={false} className="h-96">
@@ -71,6 +72,7 @@ function Deets() {
       </CardFooter>
     </Card>
     </div>
+
   );
 }
 

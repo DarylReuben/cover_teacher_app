@@ -9,6 +9,7 @@ import Deets from './components/Deets'
 
 
 
+
 function App() {
   const [teacherDetails, setTeacherDetails] = useState([]);
 
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <BrowserRouter>
+
       <div className="w-screen p-8 bg-sky-100">
         <div className="bg-sky-100 max-w-[400px] w-full m-auto  shadow-2xl p-4">
           <Navbar />
@@ -37,6 +39,7 @@ function App() {
           </Routes>
         </div>
       </div>
+
     </BrowserRouter>
   );
 }
