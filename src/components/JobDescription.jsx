@@ -12,13 +12,14 @@ import {
   Switch,
   Chip,
   Radio,
+  Input,
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, useSearchParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function Filters() {
+export default function JobDescription() {
   const [openTop, setOpenTop] = React.useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedDays, setSelectedDays] = React.useState([]);
@@ -38,41 +39,34 @@ export default function Filters() {
     <>
       <div className="flex flex-wrap gap-4 bg-slate-200 ">
         <Button color="blue" onClick={openDrawerTop}>
-          Filters 
+          Job Details
         </Button>
       </div>
       <Drawer placement="top" open={openTop} onClose={closeDrawerTop} className="p-4 ">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-row justify-between items-center mb-[5px]">
           <Typography tag="h1" className="text-lg font-semibold">
-            First select date, then select sex. Clear to reset filters
+            Click save when done
           </Typography>
           <IconButton onClick={closeDrawerTop}>
             <XMarkIcon className="h-5 w-5" />
           </IconButton>
+
+          
+        
+
         </div>
-        <Card className="w-32 h-8 mt-6 mb-6 justify-center pl-5">
-          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} minDate={new Date()} />
-        </Card>
-        <Card className="w-[200px] flex-row justify-between pb-10px mb-10">
-          <Switch
-            id="male"
-            label="Male"
-            checked={searchParams.get("sex") === "male"}
-            onChange={() => handleSwitchChange("male")}
-          />
-          <Switch
-            id="female"
-            label="Female"
-            checked={searchParams.get("sex") === "female"}
-            onChange={() => handleSwitchChange("female")}
-          />
-        </Card>
-        <div className="flex flex-row mt-[10px]">
-          <Link to=".">Clear</Link>
-          <Button onClick={closeDrawerTop} className="ml-[25px]">
-            Done
-          </Button>
+       
+        <div className="flex flex-col w-72 items-end gap-2">
+            <Input size="md" label="Number of classes" />
+            <Input size="md" label="Location" />
+            <Input size="md" label="Time" />
+            <Input size="md" label="Number of students" />
+            <div className="flex flex-row w-72 items-end gap-2">
+            <Input size="md" label="Age group" /> <Button> Save </Button>
+            </div>
+
         </div>
+        
       </Drawer>
     </>
   );

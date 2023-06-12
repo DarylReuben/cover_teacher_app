@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState, } from 'react';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import { collection, doc, getDoc } from 'firebase/firestore';
 import { db } from '../Firebase';
 import { Carousel, Spinner, Card, CardHeader, CardBody, Typography, Button, CardFooter } from "@material-tailwind/react";
@@ -8,6 +8,12 @@ import { Carousel, Spinner, Card, CardHeader, CardBody, Typography, Button, Card
 function Deets() {
   const { id } = useParams();
   const [teacherData, setTeacherData] = useState(null);
+
+  const location = useLocation()
+  console.log(location)
+
+
+  const search = location.state?.search || ""
 
   useEffect(() => {
     const fetchTeacherData = async () => {
@@ -54,7 +60,7 @@ function Deets() {
             {teacherData.name} {teacherData.surname}
           </Typography>
           <Typography color="blue-gray" className="font-medium">
-            ${teacherData.price}
+            ${teacherData.price}/h
           </Typography>
         </div>
         <Typography variant="small" color="gray" className="font-normal opacity-75">
@@ -67,7 +73,7 @@ function Deets() {
           fullWidth={true}
           className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
         >
-          Add to Cart
+          Request
         </Button>
       </CardFooter>
     </Card>

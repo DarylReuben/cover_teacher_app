@@ -4,8 +4,15 @@ import { HomeIcon } from './Icons'
 
 
 function Navbar() {
+
   return (
-    <div><Link to="/"> <HomeIcon /> </Link>
+    <div>
+        <Link to="/"> <HomeIcon /> 
+        </Link>
+
+        <Link to="">
+        </Link>
+
         <h1 className="text-2xl font-bold text-center text-gray-800 p-2"> Hanoi cover teachers</h1>
         
     </div>

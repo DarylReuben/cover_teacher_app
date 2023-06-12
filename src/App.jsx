@@ -30,7 +30,7 @@ function App() {
   return (
     <BrowserRouter>
 
-      <div className="w-screen p-8 bg-sky-100">
+      <div className="w-screen p-8 bg-sky-100 ">
         <div className="bg-sky-100 max-w-[400px] w-full m-auto  shadow-2xl p-4">
           <Navbar />
           <Routes>
